@@ -7,8 +7,8 @@ Prerequisites:
 
 The following software must be installed before running the tests in the folder src/test/java
 
-1) Java version 1.6
-2) Maven version 3.0.x 
+1. Java version 1.6
+2. Maven version 3.0.x 
 
 Getting, installing and testing the source
 ------------------------------------------
