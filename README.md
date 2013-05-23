@@ -1,35 +1,29 @@
 lapdftext
 =========
 
-===================================================================
-Instructions on how to test and evaluate the LA-PDFText version 1.7
-===================================================================
+Instructions on how to download, install and run LA-PDFText version 1.7.2
 
 Prerequisites:
 
 The following software must be installed before running the tests in the folder src/test/java
 
 1) Java version 1.6
-2) Maven version 2 
+2) Maven version 3.0.x 
 
-===================================================================
-Instructions for running the unit tests
-===================================================================
+Getting, installing and testing the source
+------------------------------------------
 
-1) Change to the directory called LayoutAwarePDFText (the root directory of your project).
-2) Run the following commands in sequence
-
-   a) mvn compile 
-      This command will use Maven to compile the project. 
-   b) mvn test
-      - Provided there no errors result from running the command (a) you should see a message saying
-      'Build Success' 
-      - Running the command (b) after this will execute the tests specified in edu.isi.bmkeg.CommandLineToolTest
-      
-      
-===================================================================
+1. Fork our parent project: [https://github.com/BMKEG/bmkeg-parent](https://github.com/BMKEG/bmkeg-parent)
+2. Fork the lapdftext repo: [https://github.com/BMKEG/lapdftext](https://github.com/BMKEG/lapdftext) 
+3. Run `mvn package` (this will download all dependencies & run all tests)
+3a. Note that some of the tests are a bit funky. We want to have systems that can 
+    watch directories and parse PDFs as they're put into them. This means that there
+    are tests that count over the course of a minute and then add and remove PDF files
+    from watched directories. This is a bit of pain to watch.
+    - to avoid this and just build the code run `mvn -DskipTests package`
+            
 High-level Structure of code base
-===================================================================
+---------------------------------
 
 1. edu.isi.bmkeg.pdf.scripts.CommandLineTool is first invoked when the user runs the command line version of the system.
    - This class parses the command line options and 
@@ -47,9 +41,8 @@ High-level Structure of code base
      -- edu.isi.bmkeg.pdf.classification.ruleBased.RuleBasedChunkClassifier
         This Component is responsible for classifying the chunk blocks based on its features. 
      
-===================================================================
 Details by package
-===================================================================
+------------------
 edu.isi.bmkeg.pdf.extraction - This package contains the code that is responsible for decoding the input PDF using the JPedal Library.
 edu.isi.bmkeg.pdf.model - This package contains the logical model of PDF page structure.
 edu.isi.bmkeg.pdf.model.RTree - This package contains the RTree-based implementation of the logical model of a PDF page. 
@@ -63,11 +56,8 @@ edu.isi.bmkeg.pdf.xml - This package contains XML output operations. Specificall
                         1. OpenAccessXMLWriter - This format conforms to the DTD used by PubmedCentral and is meant for the text from of the article.
                         2. SpatialXMLWriter - This format is a representation of the word and chunk blocks before they are classified.
 
-
-
-===================================================================
 Instructions for evaluating the performance of the system
-===================================================================
+---------------------------------------------------------
 
 Assumptions:
 
