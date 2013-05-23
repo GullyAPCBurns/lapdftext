@@ -27,4 +27,4 @@ Changes from earlier systems
 
 We no longer use UIMA as the basis of running this code. We would like to include a UIMA
 collection reader to help other UIMA developers iterate over their PDF collections but 
-this is a low priority currently. 
+this is a low priority currently and may be exported to another module. 
