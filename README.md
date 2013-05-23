@@ -16,11 +16,11 @@ Getting, installing and testing the source
 1. Fork our parent project: [https://github.com/BMKEG/bmkeg-parent](https://github.com/BMKEG/bmkeg-parent)
 2. Fork the lapdftext repo: [https://github.com/BMKEG/lapdftext](https://github.com/BMKEG/lapdftext) 
 3. Run `mvn package` (this will download all dependencies & run all tests)
-3a. Note that some of the tests are a bit funky. We want to have systems that can 
+  - Note that some of the tests are a bit funky. We want to have systems that can 
     watch directories and parse PDFs as they're put into them. This means that there
     are tests that count over the course of a minute and then add and remove PDF files
     from watched directories. This is a bit of pain to watch.
-    - to avoid this and just build the code run `mvn -DskipTests package`
+  - to avoid this and just build the code run `mvn -DskipTests package`
             
 Changes from earlier systems
 ---------------------------------
